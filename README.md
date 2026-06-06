@@ -13,13 +13,19 @@ A lightweight monitoring application that collects cluster information and displ
 
 ## Build and Deploy
 
-### 1. Build Docker Image
+### 1. Setup GitHub Secrets
 
-```bash
-docker build -t cluster-monitor:latest .
-```
+Add these secrets to your GitHub repository (Settings → Secrets and variables → Actions):
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
 
-### 2. Deploy to Kubernetes
+### 2. Push to GitHub
+
+The GitHub Actions workflow will automatically:
+- Build the Docker image
+- Push to ECR when you push to main/master branch
+
+### 3. Deploy to Kubernetes
 
 ```bash
 kubectl apply -f k8s-deployment.yaml

@@ -47,8 +47,8 @@ spec:
       serviceAccountName: cluster-monitor
       containers:
       - name: monitor
-        image: cluster-monitor:latest
-        imagePullPolicy: IfNotPresent
+        image: 590184029746.dkr.ecr.us-east-1.amazonaws.com/cluster-monitor:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
 ---
